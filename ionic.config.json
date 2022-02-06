@@ -1,0 +1,7 @@
+{
+  "name": "examCocktaildbApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

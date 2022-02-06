@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "examCocktaildbApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
