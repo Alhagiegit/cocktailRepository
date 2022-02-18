@@ -1,0 +1,63 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+.drinkImage {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.cardContainer {
+  background-color: #141414;
+  border-radius: 20px;
+  width: 250px;
+  margin-top: 30px;
+  color: white;
+}
+.test {
+  color: #ff0000;
+}
+.test2 {
+  color: white;
+}
+
+.default {
+  color: white;
+}
+.desc {
+  margin: auto;
+  font-weight: bold;
+  font-size: 15px;
+  height: 150px;
+  text-align: center;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.desc p {
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+}
+.descontainer {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+}
+.separator img {
+  height: 5px;
+  width: 100%;
+}
+.descTitle {
+  font-size: 25px;
+  font-weight: bold;
+}
+.onClick {
+  color: red;
+}
+.default {
+  color: white;
+}
+ion-icon {
+  --ionicon-stroke-width: 32px;
+}

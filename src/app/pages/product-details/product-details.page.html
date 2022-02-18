@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>product-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <mat-divider></mat-divider>
+    <button (click)='onClickBack()' mat-button class="menu-button"
+      style="color: white; margin:10px; background-color: blue; border-radius: 10px;">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Go back</span>
+      <mat-divider></mat-divider>
+    </button>
+  </div>
+  <div class="container">
+    <div class="row singleDrink">
+      <div class=" col-md-7 col-sm-12" style="margin: auto;">
+        <h2 class="title">{{ drink.strDrink | uppercase }}</h2>
+        <img style="margin: auto;" class="singleImage" [src]="drink.strDrinkThumb" alt="drink image" />
+        <div style="text-align: center;  margin-top: 10px" *ngIf="drink.strTags">
+          {{ drink.strTags }}
+        </div>
+        <div style="text-align: center; margin-top: 10px" *ngIf="!drink.strTags">
+          No Tags
+        </div>
+        <div class="arrow_container">
+          <img *ngIf="idDrink !== '11000'" (click)='onClickArrow("left")' class="arrow" src="/assets/images/Arrow-Left.png" alt="arrow left" />
+          <img (click)='onClickArrow("right")' class="arrow" src="/assets/images/Arrow-Right.png" alt="arrow right" />
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-12">
+        <h2 class="title" style="text-align: center;">INGREDIENTS</h2>
+        <div class="row ingredientDetail">
+          <div class="col">
+            <div class="ingredient">
+              <img *ngIf='drink.strIngredient1' [src]="getImage(drink.strIngredient1) " alt="cocktail ingredient" />
+            </div>
+            <div class="measure">
+              <span style="margin: 4px">{{ drink.strMeasure1}}</span>
+              <span> {{ drink.strIngredient1 }}</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="ingredient">
+              <img *ngIf='drink.strIngredient2' [src]="getImage(drink.strIngredient2) " alt="cocktail ingredient" />
+            </div>
+            <div class="measure">
+              <span style="margin-right: 4px">{{ drink.strMeasure2}}</span>
+              <span> {{ drink.strIngredient2 }}</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="ingredient">
+              <img *ngIf='drink.strIngredient3' [src]=" getImage(drink.strIngredient3) " alt="cocktail ingredient" />
+            </div>
+            <div class="measure">
+              <span style="margin-right: 4px">{{ drink.strMeasure3}}</span>
+              <span> {{ drink.strIngredient3 }}</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="ingredient">
+              <img *ngIf='drink.strIngredient4' [src]="getImage(drink.strIngredient4) " alt="cocktail ingredient" />
+            </div>
+            <div class="measure">
+              <span style="margin-right: 4px">{{ drink.strMeasure4}}</span>
+              <span> {{ drink.strIngredient4 }}</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="ingredient">
+              <img *ngIf='drink.strIngredient5' [src]="getImage(drink.strIngredient5) " alt="cocktail ingredient" />
+            </div>
+            <div class="measure">
+              <span style="margin-right: 4px">{{ drink.strMeasure5}}</span>
+              <span> {{ drink.strIngredient5 }}</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="ingredient">
+              <img *ngIf='drink.strIngredient6' [src]="getImage(drink.strIngredient6)" alt="cocktail ingredient" />
+            </div>
+            <div class="measure">
+              <span style="margin-right: 4px">{{ drink.strMeasure6}} </span>
+              <span> {{ drink.strIngredient6 }}</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="ingredient">
+              <img *ngIf='drink.strIngredient7' [src]="getImage(drink.strIngredient7)" alt="cocktail ingredient" />
+            </div>
+            <div class="measure">
+              <span style="margin-right: 4px">{{ drink.strMeasure7}} </span>
+              <span> {{ drink.strIngredient7 }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 100px">
+    <h2 style="text-align: center; color: rgb(234, 0, 255)">INSTRUCTIONS</h2>
+    <div style="text-align: center">
+      <div style="color: tomato">CHOOSE LANGUAGE</div>
+      <span><img (click)="onClickFlag('en')" src="/assets/images/lang/en.png" alt="lang ENG" /></span>
+      <span><img (click)="onClickFlag('it')" src="/assets/images/lang/it.png" alt="lang IT" /></span>
+      <span><img (click)="onClickFlag('de')" src="/assets/images/lang/ger.png" alt="lang GER" /></span>
+      <div class="row" style="margin-bottom:40px;" *ngIf="drink">
+        <div class="col-sm-12 col" style="margin: auto" *ngIf='isClick && lang==="en"'>
+          <p class="instruction">
+            {{drink.strInstructions}}
+          </p>
+        </div>
+        <div class="col-sm-12 col" style="margin: auto" *ngIf='isClick && lang==="de"'>
+          <p class="instruction">
+            {{drink.strInstructionsDE}}
+          </p>
+        </div>
+        <div class="col-sm-12 col" style="margin: auto" *ngIf='isClick && lang==="it"'>
+          <p class="instruction">
+            {{drink.strInstructionsIT}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>search-drink</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <mat-divider></mat-divider>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/product-list"></ion-back-button>
+    </ion-buttons>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="container">
+    <div *ngIf="drinks.length === 0">
+      <p style="color: white">
+        Non hai nessun drink che ha questo nome! ti prego di riprovare con
+        un'altra nome
+      </p>
+    </div>
+    <div class="row" *ngIf="drinks">
+      <div class="col" *ngFor="let drink of drinks let i=index">
+        <mat-card class="cardContainer">
+          <img
+            mat-card-image
+            class="drinkImage"
+            [routerLink]="['/product-details'  , drink.idDrink]"
+            [src]="drink.strDrinkThumb"
+            alt="drinkImage"
+          />
+          <mat-card-content style="margin-bottom: 0px">
+            <mat-card-title style="color: white; font-size: 20px"
+              >{{drink.strDrink}}</mat-card-title
+            >
+            <mat-card-subtitle style="color: white"
+              >{{drink.strCategory}}</mat-card-subtitle
+            >
+          </mat-card-content>
+          <mat-card-actions>
+              <ion-icon ios="heart-outline" md="heart-sharp" (click)="onHeartClick()"  size="large" [ngClass]=" click ? 'onClick' : 'default' " name="heart-outline"></ion-icon>
+      
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</ion-content>

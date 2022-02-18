@@ -3,8 +3,9 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+          <ion-list-header> 
+            <a [routerLink]="['/']"><img [src]="'/assets/images/logo.png'" alt="logo image">
+            </a></ion-list-header>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
@@ -12,17 +13,25 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
+          <mat-divider></mat-divider>
+          <form>
+            <svg width="16" height="16">
+              <path fill="white" d="M11.87 10.835c.018.015.035.03.051.047l3.864 3.863a.735.735 0 1 1-1.04 1.04l-3.863-3.864a.744.744 0 0 1-.047-.051 6.667 6.667 0 1 1 1.035-1.035zM6.667 12a5.333 5.333 0 1 0 0-10.667 5.333 5.333 0 0 0 0 10.667z"></path>
+            </svg>
+            <mat-form-field appearance="fill">
+              <mat-label style="color: white;">Favorite drinks</mat-label>
+              <input  matInput name="searchTerm" [(ngModel)]='searchTerm' placeholder="Ex. gin tonic"  value="gin tonic">
+            </mat-form-field>
+            <ion-button  shape="round" style="margin-left:130px; color: white;" (click)='search()' >cerca</ion-button>
+          </form>
         </ion-list>
       </ion-content>
+
+      <ion-footer>
+      <ion-toolbar>
+        <ion-title> <a [routerLink]="['/']"><img [src]="'/assets/images/logo.png'" alt="logo image"></a></ion-title>
+      </ion-toolbar>
+      </ion-footer>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
